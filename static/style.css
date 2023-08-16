@@ -1,0 +1,66 @@
+/* style.css */
+
+/* Establecer el fondo de la página */
+body {
+    background-color: #f4f4f4; /* Color de fondo gris claro */
+    margin: 0;
+    padding: 0;
+    margin-left: 50px;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para el título principal */
+.center-title {
+    text-align: center;
+    color: #660066; /* Color morado */
+    margin-bottom: 20px;
+}
+
+/* Cambiar el color de fondo del botón */
+button {
+    background-color: #ffcc00; /* Color amarillo */
+    color: #000; /* Texto en blanco */
+    border: none;
+    margin-left: 600px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+
+}
+
+/* Cambiar el color del texto de las etiquetas */
+label {
+    color: #660066; /* Color morado */
+    margin-bottom: 10px;
+}
+
+/* Estilo para el resultado del balance */
+#result h1 {
+    color: #660066; /* Color morado */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Cambiar el color de los enlaces */
+a {
+    color: #ffcc00; /* Color amarillo */
+    text-decoration: none;
+}
+
+/* Cambiar el color de los enlaces al pasar el ratón */
+a:hover {
+    color: #660066; /* Color morado */
+}
+
+#content-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#sidebar-image {
+    float: right;
+    width: 300px;
+    margin-right: 300px;
+    margin-top: -700px; /* Agrega margen superior para separar de contenido anterior */
+}

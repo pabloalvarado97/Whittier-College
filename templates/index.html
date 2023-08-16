@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Semester Down Payment Worksheet</title>
+</head>
+<style>
+    .center-title {
+        text-align: center;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+
+</style>
+<body>
+    <h1 class="center-title">Semester Balance Calculator</h1>
+    <form action="/" method="post">
+        <label for="semester">1. In which semester will you be enrolled?</label><br>
+        <br>
+        <select name="semester" id="semester">
+            <option value="Fall 2023">Fall 2023</option>
+            <option value="Spring 2024">Spring 2024</option>
+        </select><br>
+        <br>
+
+        <label for="new_student">2. Are you a new student?</label><br>
+        <br>
+        <input type="radio" name="new_student" value="Yes"> Yes<br>
+        <input type="radio" name="new_student" value="No"> No<br>
+        <br>
+
+        <label for="credit_hours">3. For how many credit hours will you enroll?</label><br>
+        <br>
+        <select name="credit_hours" id="credit_hours">
+            {% for i in range(1, 21) %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select><br>
+        <br>
+
+        <label for="total_class_fees">4. How much are your total courses fees, if known?<br>
+        These fees can be found here:<a href="https://cf2.whittier.edu/registrar/students/schedule/index.cfm"> Online Schedule of Classes of Whittier College</a>
+        </label><br>
+        <br>
+        <input type="number" step="0.01" name="total_class_fees"><br>
+        <br>
+
+        <label for="living_location">5. Residence Status:Where will you be living?</label><br>
+        <br>
+        <select name="living_location" id="living_location">
+            <option value="On-campus: Single room">On-campus: Single room</option>
+            <option value="On-campus: Double room">On-campus: Double room</option>
+            <option value="On-campus: Triple room">On-campus: Triple room</option>
+            <option value="Off-campus">Off-campus</option>
+        </select><br>
+        <br>
+
+        <label for="meal_plan">6. Which meal plan will you choose?</label><br>
+        <br>
+        <select name="meal_plan" id="meal_plan">
+            <option value="19 Meals">19 Meals</option>
+            <option value="19 Meals with Flex">19 Meals with Flex</option>
+            <option value="15 Meals">15 Meals</option>
+            <option value="15 Meals with Flex">15 Meals with Flex</option>
+            <option value="10 Meals">10 Meals</option>
+            <option value="10 Meals with Flex">10 Meals with Flex</option>
+            <option value="5 Meals">5 Meals</option>
+            <option value="5 Meals with Flex">5 Meals with Flex</option>
+            <option value="None">None</option>
+        </select><br>
+        <br>
+
+        <label for="health_insurance">7. Will you purchase health insurance through Whittier College? (F-1, J-1 Visa) is mandatory</label><br>
+        <br>
+        <input type="radio" name="health_insurance" value="Yes"> Yes<br>
+        <input type="radio" name="health_insurance" value="No"> No<br>
+        <br>
+
+        <label for="total_financial_aid">8. Total Semester Financial Aid Awards? (optional)</label><br>
+        <br>
+        <input type="number" step="0.01" name="financial_aid_a" placeholder="Whittier Grants"> <br>
+        <input type="number" step="0.01" name="financial_aid_b" placeholder="Federal Pell"> <br>
+        <input type="number" step="0.01" name="financial_aid_c" placeholder="Fed loan SUB & UNSUB"> <br>
+        <input type="number" step="0.01" name="financial_aid_d" placeholder="John G Scholarship"> <br>
+        <input type="number" step="0.01" name="financial_aid_e" placeholder="Other Aid"> <br>
+        <br>
+
+        <label for="previous_balance">9. Do you have a previous balance? (optional)</label><br>
+        <br>
+        <input type="number" step="0.01" name="previous_balance"><br>
+        <br>
+        <button type="submit">Calculate Balance</button>
+    </form>
+
+    <div id="result">
+        {% if balance is not none %}
+            <h1 class="center-title">Balance: $ {{ balance }}</h1>
+        {% endif %}
+    </div>
+</body>
+
+<img src="https://www.whittier.edu/sites/default/files/media/news/whittier-box.png" alt="Imagen descriptiva" id="sidebar-image">
+
+</html>
